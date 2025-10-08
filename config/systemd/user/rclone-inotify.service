@@ -1,0 +1,15 @@
+[Unit]
+Description=Rclone Inotify Watcher for GDrive Sync
+Documentation=https://rclone.org/
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/bin/rclone_inotify.sh
+Restart=on-failure
+RestartSec=5s
+StandardOutput=append:%h/.config/rclone/rclone.log
+StandardError=append:%h/.config/rclone/rclone.log
+
+[Install]
+WantedBy=default.target

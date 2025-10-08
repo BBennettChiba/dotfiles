@@ -1,0 +1,12 @@
+[Unit]
+Description=Run Rclone GDrive Bisync Periodically
+Documentation=https://rclone.org/
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=1h
+Persistent=true
+RandomizedDelaySec=15min
+
+[Install]
+WantedBy=timers.target
