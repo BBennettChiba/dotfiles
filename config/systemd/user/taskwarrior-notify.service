@@ -1,0 +1,6 @@
+[Unit]
+Description=Taskwarrior notification script
+
+[Service]
+Type=oneshot
+ExecStart=%h/scripts/taskwarrior.sh
