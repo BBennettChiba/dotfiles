@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=Discord
+StartupWMClass=discord
+Comment=All-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.
+GenericName=Internet Messenger
+#Exec=/usr/bin/discord
+#Exec=env http_proxy=http://127.0.0.1:8123 https_proxy=http://127.0.0.1:8123 /usr/bin/discord --proxy-server="http://127.0.0.1:8123"
+# Exec=bash -c '/home/bryson/watcher.sh & \
+# env http_proxy=http://127.0.0.1:8123 https_proxy=http://127.0.0.1:8123 /usr/bin/discord --proxy-server="http://127.0.0.1:8123"; \
+# pkill -P $$ watcher.sh'
+Exec=bash -c '~/scripts/watcher.sh & env http_proxy=http://127.0.0.1:8123 https_proxy=http://127.0.0.1:8123 /usr/bin/discord --proxy-server="http://127.0.0.1:8123"; pkill -P $$ watcher.sh'
+Icon=discord
+Type=Application
+Categories=Network;InstantMessaging;
+Path=/usr/bin
