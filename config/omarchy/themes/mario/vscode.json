@@ -1,0 +1,48 @@
+{
+  "name": "Mario Theme",
+  "type": "dark",
+  "colors": {
+    "editor.background": "#3B5BA5",
+    "editor.foreground": "#FFD900",
+    "editorCursor.foreground": "#E52521",
+    "editor.lineHighlightBackground": "#7C4700",
+    "editor.selectionBackground": "#FFD90044",
+    "editor.inactiveSelectionBackground": "#FFD90022",
+    "editorLineNumber.foreground": "#FFD900",
+    "editorLineNumber.activeForeground": "#E52521",
+    "activityBar.background": "#E52521",
+    "sideBar.background": "#3B5BA5",
+    "statusBar.background": "#43B047",
+    "statusBar.foreground": "#FFFFFF"
+  },
+  "tokenColors": [
+    {
+      "scope": "comment",
+      "settings": { "foreground": "#7C4700", "fontStyle": "italic" }
+    },
+    {
+      "scope": "string",
+      "settings": { "foreground": "#43B047" }
+    },
+    {
+      "scope": "keyword",
+      "settings": { "foreground": "#E52521", "fontStyle": "bold" }
+    },
+    {
+      "scope": "variable",
+      "settings": { "foreground": "#FFFFFF" }
+    },
+    {
+      "scope": "constant.numeric",
+      "settings": { "foreground": "#FFD900" }
+    },
+    {
+      "scope": "function",
+      "settings": { "foreground": "#FFD900" }
+    },
+    {
+      "scope": "type",
+      "settings": { "foreground": "#3B5BA5" }
+    }
+  ]
+}

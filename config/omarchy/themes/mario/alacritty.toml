@@ -1,0 +1,25 @@
+# Mario Theme for Alacritty
+[colors]
+primary:
+  background = "#3B5BA5" # Mario Blue
+  foreground = "#FFD900" # Mario Yellow
+
+normal:
+  black   = "#000000"
+  red     = "#E52521"
+  green   = "#43B047"
+  yellow  = "#FFD900"
+  blue    = "#3B5BA5"
+  magenta = "#7C4700"
+  cyan    = "#FFFFFF"
+  white   = "#FFFFFF"
+
+bright:
+  black   = "#7C4700"
+  red     = "#FF6B6B"
+  green   = "#43B047"
+  yellow  = "#FFD900"
+  blue    = "#3B5BA5"
+  magenta = "#E52521"
+  cyan    = "#FFD900"
+  white   = "#FFFFFF"

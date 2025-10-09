@@ -1,0 +1,14 @@
+# Mario Theme for btop
+main_bg="#3B5BA5"      # Mario Blue
+main_fg="#FFD900"      # Mario Yellow
+title="#E52521"        # Mario Red
+highlight="#FFD900"    # Mario Yellow
+selected_bg="#E52521"  # Mario Red
+selected_fg="#FFFFFF"  # White
+inactive_bg="#7C4700"  # Mario Brown
+inactive_fg="#FFFFFF"  # White
+border="#FFD900"       # Mario Yellow
+graph="#43B047"        # Mario Green
+graph_bg="#000000"     # Black
+warning="#FFD900"      # Mario Yellow
+error="#E52521"        # Mario Red
