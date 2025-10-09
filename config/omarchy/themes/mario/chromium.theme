@@ -1,0 +1,14 @@
+{
+  "theme": {
+    "frame": "#3B5BA5",
+    "toolbar": "#E52521",
+    "tab_background_text": "#FFD900",
+    "tab_background": "#3B5BA5",
+    "tab_text": "#FFD900",
+    "bookmark_text": "#FFD900",
+    "ntp_background": "#3B5BA5",
+    "ntp_text": "#FFD900",
+    "button_background": "#FFD900",
+    "button_text": "#3B5BA5"
+  }
+}

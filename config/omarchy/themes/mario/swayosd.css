@@ -1,0 +1,28 @@
+/* Mario Theme for SwayOSD */
+:root {
+  --mario-blue: #3B5BA5;
+  --mario-red: #E52521;
+  --mario-yellow: #FFD900;
+  --mario-brown: #7C4700;
+  --mario-green: #43B047;
+  --mario-white: #FFFFFF;
+  --mario-black: #000000;
+}
+
+.osd-window {
+  background: var(--mario-blue);
+  color: var(--mario-yellow);
+  border: 2px solid var(--mario-red);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px var(--mario-brown);
+}
+
+.osd-bar {
+  background: var(--mario-yellow);
+  color: var(--mario-blue);
+  border-radius: 8px;
+}
+
+.osd-icon {
+  color: var(--mario-red);
+}

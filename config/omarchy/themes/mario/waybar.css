@@ -1,0 +1,44 @@
+/* Mario Theme for Waybar */
+:root {
+  --mario-blue: #3B5BA5;
+  --mario-red: #E52521;
+  --mario-yellow: #FFD900;
+  --mario-brown: #7C4700;
+  --mario-green: #43B047;
+  --mario-white: #FFFFFF;
+  --mario-black: #000000;
+}
+
+window {
+  background: var(--mario-blue);
+  color: var(--mario-yellow);
+}
+
+#workspaces button {
+  background: var(--mario-red);
+  color: var(--mario-white);
+  border-radius: 8px;
+  margin: 2px;
+}
+
+#clock, #battery, #network, #pulseaudio {
+  background: var(--mario-yellow);
+  color: var(--mario-blue);
+  border-radius: 6px;
+  padding: 0 8px;
+  margin: 0 4px;
+}
+
+#tray {
+  background: var(--mario-brown);
+  color: var(--mario-white);
+  border-radius: 6px;
+  padding: 0 8px;
+}
+
+#window {
+  background: var(--mario-green);
+  color: var(--mario-black);
+  border-radius: 6px;
+  padding: 0 8px;
+}

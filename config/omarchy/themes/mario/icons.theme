@@ -1,0 +1,17 @@
+# Mario Theme for Icons
+[Icon Theme]
+Name=Mario-Icons
+Comment=Super Mario inspired icon theme
+Directories=48x48
+
+[48x48]
+Size=48
+Context=Applications
+Type=Fixed
+
+# Example icon color hints
+ColorPrimary=#E52521
+ColorSecondary=#3B5BA5
+ColorAccent=#FFD900
+ColorShadow=#7C4700
+ColorHighlight=#43B047

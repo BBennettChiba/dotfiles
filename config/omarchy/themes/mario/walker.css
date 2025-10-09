@@ -1,0 +1,32 @@
+/* Mario Theme for Walker */
+:root {
+  --mario-blue: #3B5BA5;
+  --mario-red: #E52521;
+  --mario-yellow: #FFD900;
+  --mario-brown: #7C4700;
+  --mario-green: #43B047;
+  --mario-white: #FFFFFF;
+  --mario-black: #000000;
+}
+
+body {
+  background: var(--mario-blue);
+  color: var(--mario-yellow);
+}
+
+.menu {
+  background: var(--mario-red);
+  color: var(--mario-white);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px var(--mario-brown);
+}
+
+.menu-item.selected {
+  background: var(--mario-yellow);
+  color: var(--mario-blue);
+}
+
+.menu-item {
+  background: var(--mario-blue);
+  color: var(--mario-white);
+}
