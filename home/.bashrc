@@ -3,7 +3,8 @@
 # Initialize Ble.sh if in an interactive session.
 # Ble.sh provides a rich interactive environment.
 # shellcheck disable=SC1094
-[[ $- == *i* ]] && source -- /home/bryson/.local/share/blesh/ble.sh --attach=none
+# [[ $- == *i* ]] && source -- /home/bryson/.local/share/blesh/ble.sh --attach=none
+export TERMINAL=ghostty
 
 # Set vi keybindings for interactive sessions if preferred.
 if [[ $- == *i* ]]; then
@@ -15,7 +16,7 @@ fi
 
 # Add custom binaries and MySQL to the PATH.
 # Keep custom paths at the beginning to prioritize them.
-export PATH="/home/bryson/bin:/usr/local/mysql/bin:$PATH"
+# export PATH="/home/bryson/bin:/usr/local/mysql/bin:$PATH"
 
 # Define the root directory for AzerothCore-WotLK.
 export AC_CODE_DIR=/home/bryson/Games/wow/azerothcore-wotlk
@@ -181,11 +182,11 @@ _fzf_comprun() {
 
 # Attach Ble.sh once all other configurations are loaded.
 # This should typically be the very last command in bashrc.
-[[ ! ${BLE_VERSION-} ]] || ble-attach
-export PATH=$PATH:$HOME/.local/bin
+# [[ ! ${BLE_VERSION-} ]] || ble-attach
+# export PATH=$PATH:$HOME/.local/bin
 
 # Added by LM Studio CLI tool (lms)
-export PATH="$PATH:/home/bryson/.lmstudio/bin"
+# export PATH="$PATH:/home/bryson/.lmstudio/bin"
 
 # Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+# [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"

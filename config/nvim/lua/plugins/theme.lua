@@ -1,1 +1,0 @@
-/home/bryson/.config/omarchy/current/theme/neovim.lua

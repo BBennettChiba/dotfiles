@@ -1,40 +1,43 @@
 [[plugin.prepend_fetchers]]
-id   = "git"
+id = "git"
 name = "*"
-run  = "git"
+run = "git"
 
 [[plugin.prepend_fetchers]]
-id   = "git"
+id = "git"
 name = "*/"
-run  = "git"
+run = "git"
 
 [plugin]
 prepend_preloaders = [
-    # Office Documents
-    { mime = "application/openxmlformats-officedocument.*", run = "office" },
-    { mime = "application/oasis.opendocument.*", run = "office" },
-    { mime = "application/ms-*", run = "office" },
-    { mime = "application/msword", run = "office" },
-    { name = "*.docx", run = "office" },
-
+  # Office Documents
+  { mime = "application/openxmlformats-officedocument.*", run = "office" },
+  { mime = "application/oasis.opendocument.*", run = "office" },
+  { mime = "application/ms-*", run = "office" },
+  { mime = "application/msword", run = "office" },
+  { name = "*.docx", run = "office" },
 ]
 
 prepend_previewers = [
-    # Office Documents
-    { mime = "application/openxmlformats-officedocument.*", run = "office" },
-    { mime = "application/oasis.opendocument.*", run = "office" },
-    { mime = "application/ms-*", run = "office" },
-    { mime = "application/msword", run = "office" },
-    { name = "*.docx", run = "office" },
-    { mime = "application/epub+zip", run = "epub-preview"}
+  # Office Documents
+  { mime = "application/openxmlformats-officedocument.*", run = "office" },
+  { mime = "application/oasis.opendocument.*", run = "office" },
+  { mime = "application/ms-*", run = "office" },
+  { mime = "application/msword", run = "office" },
+  { name = "*.docx", run = "office" },
+  { mime = "application/epub+zip", run = "epub-preview" },
+  { name = "*.csv", run = "bat" },
+  { name = "*.md", run = "bat" },
+  { name = "*/", run = "folder", sync = true },
+  { mime = "text/*", run = "bat" },
+  { mime = "*/xml", run = "bat" },
+  { mime = "*/cs", run = "bat" },
+  { mime = "*/javascript", run = "bat" },
+  { mime = "*/x-wine-extension-ini", run = "bat" },
 ]
 
 [opener]
-open = [
-    { run = 'ghostty -e lue "$@"' },
-]
+open = [{ run = 'ghostty -e lue "$@"' }]
 
 [open]
-prepend_rules = [
-{name = "*.epub", use = 'open'}
-]
+prepend_rules = [{ name = "*.epub", use = 'open' }]
