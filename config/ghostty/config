@@ -5,7 +5,9 @@ config-file = hyde
 #gtk-titlebar = true
 #gtk-titlebar-style = tabs
 
+shell-integration = zsh
+shell-integration-features = cursor,sudo,title
 
 custom-shader = ~/.config/ghostty/ghostty-shaders/cursor_smear_rainbow.glsl
 
-
+unfocused-split-opacity=.8

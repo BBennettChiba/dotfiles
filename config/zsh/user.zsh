@@ -37,52 +37,7 @@ export PATH="$HOME/.local/share/omarchy/bin:$PATH"
 export XCOMPOSEFILE="$XDG_CONFIG_HOME"/X11/xcompose
 
 export TERMINAL=ghostty
-# Function to save directory contents to a text file with headers
-# Ignores files starting with .zcompdump
-save_dir_contents_to_file() {
-  local output_file="$1"
-  local current_dir="${2:-.}" # Default to current directory if no second argument
-
-  # Ensure the output file is provided
-  if [[ -z "$output_file" ]]; then
-    echo "Usage: save_dir_contents_to_file <output_filename> [directory]"
-    return 1
-  fi
-
-  # Enable extended glob for Zsh-specific exclusions
-  setopt LOCAL_OPTIONS EXTENDED_GLOB
-
-  echo "DEBUG: Finding files in '$current_dir'..." >&2 # Debug message to stderr
-  local files
-  files=("${(@f)$(find "$current_dir" -type f ! -name ".zcompdump*" | sort)}")
-  echo "DEBUG: Found ${#files[@]} files." >&2 # Debug message to stderr
-
-  if [[ -e "$output_file" ]]; then
-    echo "Warning: File '$output_file' already exists and will be overwritten."
-  fi
-
-  # Clear the output file before writing
-  > "$output_file"
-
-  # Iterate through the found files and append their content to the output file
-  for file in "${files[@]}"; do
-    # Get the relative path for the header, or full path if current_dir is not '.'
-    local display_path
-    if [[ "$current_dir" == "." ]]; then
-      display_path="${file#./}" # Remove leading ./
-    else
-      display_path="$file"
-    fi
-
-    echo "DEBUG: Processing file: $display_path" >&2 # Debug message to stderr
-
-    echo "--- FILE START: $display_path ---" >> "$output_file"
-    # This is where 'cat' and redirection happen
-    cat "$file" >> "$output_file"
-    echo "--- FILE END: $display_path ---" >> "$output_file"
-    echo "" >> "$output_file" # Add a blank line for readability
-    echo "DEBUG: Finished processing: $display_path" >&2 # Debug message to stderr
-  done
-
-  echo "Contents of '$current_dir' (excluding .zcompdump files) saved to '$output_file'."
-}
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
+export PARALLEL_HOME="$XDG_DATA_HOME"/parallel
+export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql_history
+export GOPATH="$XDG_DATA_HOME"/go
