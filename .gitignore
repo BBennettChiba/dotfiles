@@ -1,3 +1,4 @@
 _*
-./zsh/.zcompdump*
-./zsh/.zsh_history
+zsh/.zcompdump*
+zsh/.zsh_history
+config/git/credentials
