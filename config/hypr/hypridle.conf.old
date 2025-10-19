@@ -1,0 +1,29 @@
+general {
+    lock_cmd = omarchy-lock-screen                         # lock screen and 1password
+    before_sleep_cmd = loginctl lock-session               # lock before suspend.
+    after_sleep_cmd = hyprctl dispatch dpms on             # to avoid having to press a key twice to turn on the display.
+    inhibit_sleep = 3                                      # wait until screen is locked
+}
+
+listener {
+    timeout = 150                                             # 2.5min
+    on-timeout = pidof hyprlock || omarchy-launch-screensaver # start screensaver (if we haven't locked already)
+}
+
+listener {
+    timeout = 300                      # 5min
+    on-timeout = loginctl lock-session # lock screen when timeout has passed
+    on-resume = hyprctl dispatch dpms on && brightnessctl -r # Ensure screens turn on and brightness resets if you move mouse before timeout 330
+}
+
+listener {
+    timeout = 330                                            # 5.5min
+    on-timeout = hyprctl dispatch dpms off                   # screen off when timeout has passed
+    on-resume = hyprctl dispatch dpms on && brightnessctl -r # screen on when activity is detected
+}
+# Optional: Add a suspend listener if you want your system to sleep after displays are off
+# listener {
+#     timeout = 600 # 10 min
+#     on-timeout = systemctl suspend
+#     # on-resume not strictly needed here as after_sleep_cmd handles monitor on
+# }

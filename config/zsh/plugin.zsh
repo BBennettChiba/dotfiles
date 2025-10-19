@@ -1,6 +1,6 @@
 # Use your plugin system here
 
-return 1 # <--- Comment this line to disable HyDE's oh-my-zsh plugins and use the zinit examples below
+#return 1 # <--- Comment this line to disable HyDE's oh-my-zsh plugins and use the zinit examples below
 
 #! This file will not load, remove the return 1 line above to enable this file.
 #? Below is an example of how to set up Zsh plugins using Zinit
@@ -39,7 +39,7 @@ zinit snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
 # Plugin: z (rupa/z)
 # Enables quick directory jumping based on your usage history.
 # just like zoxide, but for zsh
-zinit light rupa/z
+# zinit light rupa/z
 
 # Plugin: zsh-completions
 # Adds many extra tab completions for Zsh, improving command-line productivity.
@@ -64,3 +64,8 @@ zinit light Aloxaf/fzf-tab
 # Plugin: alias-tips
 # Shows tips for using defined aliases when you type commands, helping you learn and use your aliases.
 zinit light djui/alias-tips
+
+zinit light chrissicool/zsh-256color
+
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode

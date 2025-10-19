@@ -1,6 +1,12 @@
 #  Startup 
 # Commands to execute on startup (before the prompt is shown)
 # Check if the interactive shell option is set
+
+# Load user modules
+for file in "${ZDOTDIR:-$HOME/.config/zsh}/user/"*.zsh; do
+    [ -r "$file" ] && source "$file"
+done
+
 if [[ $- == *i* ]]; then
     # This is a good place to load graphic/ascii art, display system information, etc.
     if command -v pokego >/dev/null; then
@@ -32,12 +38,3 @@ if [[ ${HYDE_ZSH_NO_PLUGINS} != "1" ]]; then
         zsh-vi-mode
     )
 fi
-
-export PATH="$HOME/.local/share/omarchy/bin:$PATH"
-export XCOMPOSEFILE="$XDG_CONFIG_HOME"/X11/xcompose
-
-export TERMINAL=ghostty
-export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
-export PARALLEL_HOME="$XDG_DATA_HOME"/parallel
-export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql_history
-export GOPATH="$XDG_DATA_HOME"/go
