@@ -60,6 +60,7 @@ zinit light hlissner/zsh-autopair
 # Plugin: fzf-tab
 # Enhances tab completion with fzf-powered fuzzy search and a better UI.
 zinit light Aloxaf/fzf-tab
+unalias gh
 
 # Plugin: alias-tips
 # Shows tips for using defined aliases when you type commands, helping you learn and use your aliases.
@@ -69,3 +70,5 @@ zinit light chrissicool/zsh-256color
 
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
+
+zinit load zpm-zsh/ls

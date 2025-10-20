@@ -11,6 +11,7 @@ export EDITOR=nvim
 export TERMINAL=ghostty
 export AC_CODE_DIR=/home/bryson/Games/wow/azerothcore-wotlk
 export OMARCHY_PATH=$HOME/.local/share/omarchy
+export MANPAGER="nvim +Man!"
 
 #PATH
 export PATH="/home/bryson/bin:/usr/local/mysql/bin:$PATH"
