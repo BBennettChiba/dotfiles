@@ -25,3 +25,4 @@ alias taskt=taskwarrior-tui
 
 alias viu=viu-media
 
+alias peaclock="peaclock --config-dir ~/.config/peaclock"

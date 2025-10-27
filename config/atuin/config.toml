@@ -65,7 +65,7 @@
 
 ## which style to use
 ## possible values: auto, full, compact
-# style = "auto"
+style = "auto"
 
 ## the maximum number of lines the interface should take up
 ## set it to 0 to always go full screen
@@ -267,7 +267,7 @@ records = true
 ##    https://ogeon.github.io/docs/palette/master/palette/named/index.html
 ## If you provide a custom theme file, it should be  called "NAME.toml" and the theme below
 ## should be the stem, i.e. `theme = "NAME"` for your chosen NAME.
-# name = "autumn"
+name = "autumn"
 
 ## Whether the theme manager should output normal or extra information to help fix themes.
 ## Boolean, true or false. If unset, left up to the theme manager.

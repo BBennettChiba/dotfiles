@@ -14,5 +14,5 @@ export OMARCHY_PATH=$HOME/.local/share/omarchy
 export MANPAGER="nvim +Man!"
 
 #PATH
-export PATH="/home/bryson/bin:/usr/local/mysql/bin:$PATH"
 export PATH="$HOME/.local/share/omarchy/bin:$PATH"
+export PATH="/home/bryson/bin:/usr/local/mysql/bin:$PATH"

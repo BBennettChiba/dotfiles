@@ -5,19 +5,19 @@ selection-background = #FFFFFF
 cursor-color = #9EBACB
 
 
-palette = 0=#294752
-palette = 1=#CCECFF
-palette = 2=#CCEEFF
-palette = 3=#CCEEFF
-palette = 4=#9AD1E6
-palette = 5=#9ACDE6
-palette = 6=#9ACCE6
-palette = 7=#CCECFF
-palette = 8=#57808F
-palette = 9=#AAD5F0
-palette = 10=#AAD9F0
-palette = 11=#AAD9F0
-palette = 12=#9AD1E6
-palette = 13=#9ACDE6
-palette = 14=#9ACCE6
-palette = 15=#AAD5F0
+palette = 0=#21222c
+palette = 1=#ff5555
+palette = 2=#50fa7b
+palette = 3=#f1fa8c
+palette = 4=#bd93f9
+palette = 5=#ff79c6
+palette = 6=#8be9fd
+palette = 7=#f8f8f2
+palette = 8=#6272a4
+palette = 9=#ff6e6e
+palette = 10=#69ff94
+palette = 11=#ffffa5
+palette = 12=#d6acff
+palette = 13=#ff92df
+palette = 14=#a4ffff
+palette = 15=#ffffff

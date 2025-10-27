@@ -1,5 +1,4 @@
 # Add your custom configuration in here. 
-config-file = hyde
 
 #gtk-adwaita = true
 #gtk-titlebar = true
@@ -11,3 +10,5 @@ shell-integration-features = cursor,sudo,title
 custom-shader = ~/.config/ghostty/ghostty-shaders/cursor_smear_rainbow.glsl
 
 unfocused-split-opacity=.8
+
+config-file = hyde

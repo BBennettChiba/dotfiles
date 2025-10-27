@@ -22,6 +22,11 @@
       "text": "bible"
     },
     {
+      "type": "command",
+      "key": "  ",
+      "text": "shakespeare | pad_left"
+    },
+    {
       "type": "custom",
       "format": "┌──────────────────────────────────────────┐"
     },
