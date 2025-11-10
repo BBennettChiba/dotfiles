@@ -41,3 +41,7 @@ open = [{ run = 'ghostty -e lue "$@"' }]
 
 [open]
 prepend_rules = [{ name = "*.epub", use = 'open' }]
+
+[mgr]
+show_hidden = true
+ratio = [1, 2, 5]
