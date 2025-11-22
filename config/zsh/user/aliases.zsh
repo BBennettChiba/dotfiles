@@ -26,3 +26,9 @@ alias taskt=taskwarrior-tui
 alias viu=viu-media
 
 alias peaclock="peaclock --config-dir ~/.config/peaclock"
+
+alias rm='echo "This is not the command you are looking for. (trash-put)"; false'
+
+alias delete_force='/usr/bin/rm -rf'
+
+alias reload="source $HOME/.config/zsh/.zshrc"

@@ -1,5 +1,14 @@
 # keymap.toml
-[[mgr.prepend_keymap]]
-on   = [ "g", "c" ]
-run  = "plugin vcs-files"
-desc = "Show Git file changes"
+[mgr]
+prepend_keymap = [
+  { on = [
+    "g",
+    "c",
+  ], run = "plugin vcs-files", desc = "Show Git file changes" },
+  { on = [
+    "d",
+  ], run = [
+    "escape --visual",
+    ''' shell --confirm 'trash-put "$@"' ''',
+  ], desc = "Move the files to the trash" },
+]

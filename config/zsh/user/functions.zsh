@@ -4,7 +4,7 @@ function y() {
 	yazi "$@" --cwd-file="$tmp"
 	IFS= read -r -d '' cwd < "$tmp"
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-	rm -f -- "$tmp"
+	/usr/bin/rm -f -- "$tmp"
 }
 
 # Create a new directory and enter it.

@@ -19,7 +19,7 @@
     {
       "type": "command",
       "key": "  ",
-      "text": "bible"
+      "text": "bible | pad_left"
     },
     {
       "type": "command",
