@@ -1,5 +1,7 @@
 # Add your custom configuration in here. 
 
+font-size = 10 
+theme = "Catppuccin Mocha"
 #gtk-adwaita = true
 #gtk-titlebar = true
 #gtk-titlebar-style = tabs
@@ -11,4 +13,8 @@ custom-shader = ~/.config/ghostty/ghostty-shaders/cursor_smear_rainbow.glsl
 
 unfocused-split-opacity=.8
 
-config-file = hyde
+#config-file = hyde
+
+# Slowdown mouse scrolling
+mouse-scroll-multiplier = 0.95
+

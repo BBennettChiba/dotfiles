@@ -26,16 +26,16 @@ prepend_previewers = [
   { mime = "application/msword", run = "office" },
   { name = "*.docx", run = "office" },
   { mime = "application/epub+zip", run = "epub-preview" },
-  { name = "*.csv", run = "bat" },
-  { name = "*.md", run = "bat" },
-  { name = "*/", run = "folder", sync = true },
-  { mime = "text/*", run = "bat" },
-  { mime = "*/xml", run = "bat" },
-  { mime = "*/cs", run = "bat" },
-  { mime = "*/javascript", run = "bat" },
-  { mime = "*/x-wine-extension-ini", run = "bat" },
+  { name = "*.csv", run = 'piper -- bat -p --color=always "$1"' },
+  { mime = "text/*", run = 'piper -- bat -p --color=always "$1"' },
+  { mime = "*/xml", run = 'piper -- bat -p --color=always "$1"' },
+  { mime = "*/cs", run = 'piper -- bat -p --color=always "$1"' },
+  { mime = "*/javascript", run = 'piper -- bat -p --color=always "$1"' },
+  { mime = "*/x-wine-extension-ini", run = 'piper -- bat -p --color=always "$1"' },
+  { url = "*.tar*", run = 'piper --format=url -- tar tf "$1"' },
+  { url = "*.md", run = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"' },
+  { url = "*/", run = 'piper -- eza -TL=3 --color=always --icons=always --group-directories-first --no-quotes "$1"' },
 ]
-
 [opener]
 open = [{ run = 'ghostty -e lue "$@"' }]
 
