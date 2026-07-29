@@ -2,6 +2,7 @@ eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
 eval "$(thefuck --alias)"
+eval "$(drift shell-init zsh)"
 
 # FZF (Fuzzy Finder) Configuration
 # Default command for fzf to search hidden files, follow symlinks, and exclude specific directories.

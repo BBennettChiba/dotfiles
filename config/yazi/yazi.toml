@@ -1,12 +1,14 @@
 [[plugin.prepend_fetchers]]
 id = "git"
-name = "*"
+url = "*"
 run = "git"
+group = "git"
 
 [[plugin.prepend_fetchers]]
 id = "git"
-name = "*/"
+url = "*/"
 run = "git"
+group = "git"
 
 [plugin]
 prepend_preloaders = [
@@ -15,33 +17,70 @@ prepend_preloaders = [
   { mime = "application/oasis.opendocument.*", run = "office" },
   { mime = "application/ms-*", run = "office" },
   { mime = "application/msword", run = "office" },
-  { name = "*.docx", run = "office" },
+  { url = "*.docx", run = "office" },
 ]
 
 prepend_previewers = [
   # Office Documents
+  { url = "*.md", run = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"' },
   { mime = "application/openxmlformats-officedocument.*", run = "office" },
   { mime = "application/oasis.opendocument.*", run = "office" },
   { mime = "application/ms-*", run = "office" },
   { mime = "application/msword", run = "office" },
-  { name = "*.docx", run = "office" },
+  { url = "*.docx", run = "office" },
   { mime = "application/epub+zip", run = "epub-preview" },
-  { name = "*.csv", run = 'piper -- bat -p --color=always "$1"' },
+  { url = "*.csv", run = 'piper -- bat -p --color=always "$1"' },
   { mime = "text/*", run = 'piper -- bat -p --color=always "$1"' },
   { mime = "*/xml", run = 'piper -- bat -p --color=always "$1"' },
   { mime = "*/cs", run = 'piper -- bat -p --color=always "$1"' },
   { mime = "*/javascript", run = 'piper -- bat -p --color=always "$1"' },
   { mime = "*/x-wine-extension-ini", run = 'piper -- bat -p --color=always "$1"' },
   { url = "*.tar*", run = 'piper --format=url -- tar tf "$1"' },
-  { url = "*.md", run = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"' },
   { url = "*/", run = 'piper -- eza -TL=3 --color=always --icons=always --group-directories-first --no-quotes "$1"' },
+  { mime = "audio/*", run = "exifaudio" },
 ]
+
 [opener]
-open = [{ run = 'ghostty -e lue "$@"' }]
+open_book = [{ run = 'bookokrat "$@"', block = true }]
+# open_pdf = [{ run = 'tdf "$@"', block = true }]
 
 [open]
-prepend_rules = [{ name = "*.epub", use = 'open' }]
+prepend_rules = [
+  # { url = "*.pdf", use = "open_pdf" },
+  { url = "*.pdf", use = 'open_book' },
+  { url = "*.epub", use = 'open_book' },
+]
 
 [mgr]
 show_hidden = true
 ratio = [1, 2, 5]
+
+[[mgr.prepend_keymap]]
+on = [".", "s"]
+run = "plugin what-size"
+desc = "Calc size of selection or cwd"
+
+[[mgr.prepend_keymap]]
+on = ["c", "a", "a"]
+run = "plugin compress"
+desc = "Archive selected files"
+
+[[mgr.prepend_keymap]]
+on = ["c", "a", "p"]
+run = "plugin compress -p"
+desc = "Archive selected files (password)"
+
+[[mgr.prepend_keymap]]
+on = ["c", "a", "h"]
+run = "plugin compress -ph"
+desc = "Archive selected files (password+header)"
+
+[[mgr.prepend_keymap]]
+on = ["c", "a", "l"]
+run = "plugin compress -l"
+desc = "Archive selected files (compression level)"
+
+[[mgr.prepend_keymap]]
+on = ["c", "a", "u"]
+run = "plugin compress -phl"
+desc = "Archive selected files (password+header+level)"

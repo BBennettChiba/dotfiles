@@ -4,7 +4,7 @@ Documentation=https://rclone.org/
 
 [Timer]
 OnBootSec=5min
-OnUnitActiveSec=1h
+OnUnitActiveSec=12h
 Persistent=true
 RandomizedDelaySec=15min
 

@@ -34,3 +34,34 @@ ex () {
         echo "'$1' is not a valid file!"
     fi
 }
+
+man() {
+    if tldr "$1" &>/dev/null; then
+        tldr "$1"
+        
+        if read -q "?Show full man page? (y/N) "; then
+            echo 
+            command man "$@"
+        else
+            echo
+        fi
+    else
+        command man "$@"
+    fi
+}
+
+
+fk() {
+    local pid
+    pid=$(ps -ef | fzf -m | awk '{print $2}')
+    if [ -n "$pid" ]; then
+        kill -9 "$pid"
+    fi
+}
+
+
+fastfetch() {
+    term_width=$(tput cols </dev/tty 2>/dev/null || echo 158)
+    img_width=$((term_width * 30 / 100))
+    command fastfetch --logo-type auto --logo-width "$img_width"
+}

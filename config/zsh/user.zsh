@@ -15,11 +15,9 @@ if [[ $- == *i* ]]; then
         pokemon-colorscripts --no-title -r 1,3,6
     elif command -v fastfetch >/dev/null; then
         if do_render "image"; then
-            fastfetch --logo-type kitty
+            fastfetch
         fi
     fi
-else 
-    eval "$(mise active zsh --shims)"
 fi
 
 
@@ -38,3 +36,12 @@ if [[ ${HYDE_ZSH_NO_PLUGINS} != "1" ]]; then
         zsh-vi-mode
     )
 fi
+
+export PNPM_HOME="/home/bryson/.local/share/pnpm"
+case ":PATH:" in
+  *":PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+unsetopt correct_all
+unsetopt correct
+

@@ -15,3 +15,14 @@ unset -f command_not_found_handler # Uncomment to prevent searching for commands
 
 
 . "/home/bryson/.local/share/cargo/env"
+
+# pnpm
+export PNPM_HOME="/home/bryson/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# bun completions
+[ -s "/home/bryson/.bun/_bun" ] && source "/home/bryson/.bun/_bun"

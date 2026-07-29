@@ -1,0 +1,12 @@
+[Unit]
+Description=MPD Song Notification Service
+After=network.target mpd.service
+
+[Service]
+# Point this to where you saved your script
+ExecStart=/home/bryson/bin/song-notify.sh
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=default.target

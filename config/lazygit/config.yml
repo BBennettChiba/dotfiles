@@ -1,4 +1,5 @@
 git:
+  diffContextSize: 10
   pagers:
     - pager: delta --dark --paging=never
-    - externalDiffCommand: difft --color=always --background=light --display=inline
+    - externalDiffCommand: difft --color=always --context 10

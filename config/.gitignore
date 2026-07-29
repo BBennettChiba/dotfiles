@@ -1,0 +1,5 @@
+zsh/.zcompcache/
+zsh/.zcompdump*
+**/*.bak
+**/*.old
+**/.claude/settings.local.json

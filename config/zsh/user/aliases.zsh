@@ -11,7 +11,7 @@ alias pa='$aurhelper -Ss'                                              # list av
 alias pc='$aurhelper -Sc'                                              # remove unused cache
 alias po='$aurhelper -Qtdq | $aurhelper -Rns -'                        # remove unused packages, also try > $aurhelper -Qqd | $aurhelper -Rsu --print -
 
-alias fastfetch='fastfetch --logo-type auto'
+
 
 alias start_ac='$HOME/scripts/start_ac.sh'
 
@@ -32,3 +32,15 @@ alias rm='echo "This is not the command you are looking for. (trash-put)"; false
 alias delete_force='/usr/bin/rm -rf'
 
 alias reload="source $HOME/.config/zsh/.zshrc"
+
+alias music=rmpc
+
+alias cliexercises='$HOME/Learning/cli_learning/bin/cliexercises'
+alias grepexercises='$HOME/Learning/cli_learning/bin/grepexercises'
+alias awkexercises='$HOME/Learning/cli_learning/bin/awkexercises'
+alias sedexercises='$HOME/Learning/cli_learning/bin/sedexercises'
+
+alias sysdmt=systemd-manager-tui
+
+alias lzd=lazydocker
+alias lzg=lazygit
