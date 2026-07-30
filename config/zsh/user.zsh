@@ -7,7 +7,15 @@ for file in "${ZDOTDIR:-$HOME/.config/zsh}/user/"*.zsh; do
     [ -r "$file" ] && source "$file"
 done
 
-if [[ $- == *i* ]]; then
+
+# .zshenv (which sources this file) runs on every zsh invocation, including
+# the transient outer shell that .zshrc's `eval "$(iris init zsh)"` immediately
+# exec's away into iris. iris then spawns its own inner zsh (with IRIS_PID
+# set) for the actual interactive session. Without this guard, the greeting
+# below runs once in the throwaway outer shell (before iris's PTY is fully up,
+# so fastfetch falls back to block graphics) and again in the real inner
+# shell -- showing twice per new terminal window.
+if [[ $- == *i* ]] && { [[ -n $IRIS_PID ]] || [[ -n $IRIS_RESCUE ]] || ! command -v iris >/dev/null; }; then
     # This is a good place to load graphic/ascii art, display system information, etc.
     if command -v pokego >/dev/null; then
         pokego --no-title -r 1,3,6

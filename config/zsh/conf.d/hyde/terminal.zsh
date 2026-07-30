@@ -33,6 +33,7 @@ function _dedup_zsh_plugins {
     zsh_paths=(
         "/usr/share/oh-my-zsh"
         "/usr/local/share/oh-my-zsh"
+        "$XDG_DATA_HOME/oh-my-zsh"
         "$HOME/.oh-my-zsh"
     )
     for zsh_path in "${zsh_paths[@]}"; do [[ -d $zsh_path ]] && export ZSH=$zsh_path && break; done

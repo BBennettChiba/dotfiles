@@ -1,0 +1,28 @@
+plugins:
+  [
+    fetchart,
+    lastgenre,
+    ftintitle,
+    scrub,
+    duplicates,
+    musicbrainz,
+    spotify,
+    deezer,
+  ]
+
+directory: /home/bryson/Music
+
+import:
+  copy: yes
+  move: no
+  write: yes
+  incremental: yes
+  quiet_fallback: skip
+  incremental_skip_later: yes
+
+lastgenre:
+  auto: yes
+  source: album
+
+scrub:
+  auto: yes

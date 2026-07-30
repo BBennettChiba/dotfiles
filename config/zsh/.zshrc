@@ -1,3 +1,6 @@
+# Iris Autocomplete
+eval "$(iris init zsh)"
+
 # Add user configurations here
 # For HyDE to not touch your beloved configurations,
 # we added a config file for you to customize HyDE before loading zshrc

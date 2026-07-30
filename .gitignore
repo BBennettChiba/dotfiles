@@ -2,3 +2,20 @@ _*
 config/zsh/.zcompdump*
 config/zsh/.zsh_history
 config/git/credentials
+
+# beets: generated library state + a real Spotify access token
+config/beets/library.db
+config/beets/state.pickle
+config/beets/spotify_token.json
+
+# bookokrat: redundant backup file
+config/bookokrat/config.yaml.bak
+
+# herdr: runtime state/logs/sockets, and the downloaded plugin cache (each
+# plugin is its own git clone -- nested repos, not something to vendor here)
+config/herdr/session.json
+config/herdr/*.log
+config/herdr/*.sock
+config/herdr/plugins/
+config/herdr/plugins.json
+config/herdr/.plugins.lock

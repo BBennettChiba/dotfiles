@@ -8,6 +8,16 @@
 local MOD = hyde.config.modifiers.main
 local HOME = os.getenv("HOME")
 
+-- HyDE's own MOD+F11 cycles none -> maximize -> fullscreen -> none. This
+-- restores the old hyprlang "$mainMod SHIFT, F, fullscreen, 0" bind: a
+-- direct toggle between real (client-hiding) fullscreen and none, skipping
+-- the maximize state entirely.
+local toggle_fullscreen = function()
+  local active_window = assert(hl.get_active_window(), "No active window to toggle fullscreen")
+  local next_state = (tonumber(active_window.fullscreen) or 0) == 2 and 0 or 2
+  hl.dispatch(hl.dsp.window.fullscreen_state({ internal = next_state, client = next_state, window = active_window }))
+end
+
 local TERMINAL = "ghostty"
 local terminal  = "uwsm-app -- " .. TERMINAL
 local EDITOR    = "nvim"
@@ -15,7 +25,10 @@ local EXPLORER  = "yazi"
 local BROWSER   = "brave"
 
 -- Apps
-hl.bind(MOD .. " + RETURN", hl.dsp.exec_cmd(terminal), { description = "[Launcher|Apps] terminal emulator" })
+-- MOD+RETURN: split the focused herdr workspace if a ghostty window is
+-- already open, otherwise launch ghostty running herdr fresh. See
+-- ~/bin/herdr-launch-or-split.
+hl.bind(MOD .. " + RETURN", hl.dsp.exec_cmd(HOME .. "/bin/herdr-launch-or-split"), { description = "[Launcher|Apps] split herdr workspace / launch ghostty+herdr" })
 hl.bind("CTRL + SHIFT + T", hl.dsp.exec_cmd(terminal), { description = "[Launcher|Apps] terminal emulator" })
 hl.bind(MOD .. " + C", hl.dsp.exec_cmd(TERMINAL .. " -e " .. EDITOR), { description = "[Launcher|Apps] text editor" })
 hl.bind(MOD .. " + B", hl.dsp.exec_cmd(BROWSER), { description = "[Launcher|Apps] web browser" })
@@ -25,7 +38,9 @@ hl.bind(MOD .. " + O", hl.dsp.exec_cmd('omarchy-launch-or-focus obsidian "uwsm a
 hl.bind(MOD .. " + SLASH", hl.dsp.exec_cmd(HOME .. "/bin/passmenu"), { description = "[Launcher|Apps] Passwords" })
 hl.bind(MOD .. " + G", hl.dsp.exec_cmd(TERMINAL .. ' -e gemini -m "gemini-flash-2.5"'), { description = "[Launcher|Apps] Gemini CLI" })
 hl.bind(MOD .. " + Y", hl.dsp.exec_cmd('omarchy-launch-or-focus-webapp YouTube "https://youtube.com/"'), { description = "[Launcher|Apps] YouTube" })
-hl.bind(MOD .. " + S", hl.dsp.exec_cmd('menu "Search"'), { description = "[Launcher] Search" })
+-- MOD+S dropped: HyDE's own key_binds.lua already claims it for
+-- screenshot.snip() (locked), and both fired on the same press. HyDE's
+-- Search menu already lives on MOD+SHIFT+SLASH.
 hl.bind(MOD .. " + SPACE", hl.dsp.exec_cmd(HOME .. "/bin/menu"), { description = "[Launcher] Bryson menu" })
 
 -- Window Management (kept distinct from HyDE defaults where this diverges)
@@ -34,9 +49,13 @@ hl.bind(MOD .. " + SPACE", hl.dsp.exec_cmd(HOME .. "/bin/menu"), { description =
 -- hl.dispatch(togglefloating active)), which errors under the new lua
 -- dispatcher API -- confirmed via `hyde-shell dontkillsteam` on the CLI.
 -- Bound directly to the real dispatchers until HyDE migrates those scripts.
-hl.bind(MOD .. " + Q", hl.dsp.window.close(), { description = "[Window Management] close focused window" })
+-- MOD+Q: close the focused herdr pane (with a confirm popup if a process is
+-- running in it) when focused on ghostty, otherwise close the window as
+-- normal. See ~/bin/herdr-close-pane-or-window.
+hl.bind(MOD .. " + Q", hl.dsp.exec_cmd(HOME .. "/bin/herdr-close-pane-or-window"), { description = "[Window Management] close focused herdr pane / window" })
 hl.bind("ALT + F4", hl.dsp.window.close(), { description = "[Window Management] close focused window" })
 hl.bind(MOD .. " + SHIFT + I", hl.dsp.window.pin({ action = "toggle" }), { description = "[Window Management] toggle pin on focused window" })
+hl.bind(MOD .. " + SHIFT + F", toggle_fullscreen, { description = "[Window Management] toggle real fullscreen" })
 
 -- Resize Active Window
 hl.bind(MOD .. " + ALT + L", hl.dsp.window.resize({ x = 30, y = 0, relative = true }), { description = "[Window Management|Resize] resize window right", repeating = true })
@@ -44,11 +63,14 @@ hl.bind(MOD .. " + ALT + H", hl.dsp.window.resize({ x = -30, y = 0, relative = t
 hl.bind(MOD .. " + ALT + K", hl.dsp.window.resize({ x = 0, y = -30, relative = true }), { description = "[Window Management|Resize] resize window up", repeating = true })
 hl.bind(MOD .. " + ALT + J", hl.dsp.window.resize({ x = 0, y = 30, relative = true }), { description = "[Window Management|Resize] resize window down", repeating = true })
 
--- Focus (vim-style)
-hl.bind(MOD .. " + H", hl.dsp.focus({ direction = "left" }), { description = "[Window Management|Change focus] focus left" })
-hl.bind(MOD .. " + L", hl.dsp.focus({ direction = "right" }), { description = "[Window Management|Change focus] focus right" })
-hl.bind(MOD .. " + K", hl.dsp.focus({ direction = "up" }), { description = "[Window Management|Change focus] focus up" })
-hl.bind(MOD .. " + J", hl.dsp.focus({ direction = "down" }), { description = "[Window Management|Change focus] focus down" })
+-- Focus (vim-style). On a ghostty/herdr window, navigates herdr panes with
+-- direction-specific edge behavior (goto menu / next screen / adjacent
+-- workspace); otherwise falls back to normal Hyprland focus movement. See
+-- ~/bin/herdr-pane-nav.
+hl.bind(MOD .. " + H", hl.dsp.exec_cmd(HOME .. "/bin/herdr-pane-nav h"), { description = "[Window Management|Change focus] focus left / herdr pane" })
+hl.bind(MOD .. " + L", hl.dsp.exec_cmd(HOME .. "/bin/herdr-pane-nav l"), { description = "[Window Management|Change focus] focus right / herdr pane" })
+hl.bind(MOD .. " + K", hl.dsp.exec_cmd(HOME .. "/bin/herdr-pane-nav k"), { description = "[Window Management|Change focus] focus up / herdr pane" })
+hl.bind(MOD .. " + J", hl.dsp.exec_cmd(HOME .. "/bin/herdr-pane-nav j"), { description = "[Window Management|Change focus] focus down / herdr pane" })
 hl.bind("ALT + TAB", hl.dsp.focus({ urgent_or_last = true }), { description = "[Window Management|Change focus] focus urgent/last" })
 
 -- Group Navigation
