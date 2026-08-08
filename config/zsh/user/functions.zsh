@@ -61,7 +61,9 @@ fk() {
 
 
 fastfetch() {
-    term_width=$(tput cols </dev/tty 2>/dev/null || echo 158)
-    img_width=$((term_width * 30 / 100))
-    { print -l "TRACE CALL from:"; local i=1; while [ -n "${funcfiletrace[$i]}" ]; do print "  ${funcfiletrace[$i]}"; i=$((i+1)); done; } >> /tmp/ff_trace; command fastfetch --logo-type auto --logo-width "$img_width"
+    if [[ "$*" != *--logo-width* ]]; then
+        local term_width=$(tput cols </dev/tty 2>/dev/null || echo 158)
+        set -- --logo-width "$((term_width * 30 / 100))" "$@"
+    fi
+    command fastfetch "$@"
 }

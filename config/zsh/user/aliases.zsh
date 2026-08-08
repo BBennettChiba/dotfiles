@@ -44,3 +44,4 @@ alias sysdmt=systemd-manager-tui
 
 alias lzd=lazydocker
 alias lzg=lazygit
+alias mail=aerc

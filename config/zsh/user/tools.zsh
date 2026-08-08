@@ -1,6 +1,6 @@
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
-eval "$(atuin init zsh)"
+# eval "$(atuin init zsh)"
 eval "$(thefuck --alias)"
 eval "$(drift shell-init zsh)"
 

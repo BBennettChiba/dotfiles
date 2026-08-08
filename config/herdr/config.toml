@@ -192,7 +192,7 @@ host_cursor = "native"
 prompt_new_tab_name = true
 
 # Ask for a workspace name before interactive creation.
-prompt_new_workspace_name = true 
+prompt_new_workspace_name = true
 
 # Draw borders around split panes.
 # pane_borders = true
